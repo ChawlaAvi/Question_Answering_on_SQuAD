@@ -32,7 +32,8 @@
                  '''
                  
      After every epoch, the model is saved in a foled named **saved_model** and results are stored in a folder named              **results** so you should also create these folder before excuting the code.
-     
-     
-                  
+ 
+Accuracy and loss for both train as well as dev data are also examined using Tensorboard. One can run a Tensorbaord session to see the performance of the model.
+
+
                   
