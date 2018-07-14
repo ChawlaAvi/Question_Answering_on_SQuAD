@@ -47,3 +47,11 @@ Given below is the plot of number of examples lying in different length ranges.
 
 ![Training Data](download.jpg)  ![Validation Data](download1.jpg) 
 
+### Approach:
+DCN, also known as Dynamic Co-attention Network is an end-to-end neural network for Question Answering. DCN comprises of a Co-attention Encoder and a Dynamic Pointer Decoder. 
+Co-attention Encoder first find the fuses the question and the passage together to generate a question-oriented passage representation called the coattention encoding which is fed to the Dynamic Pointer Decoder. Dyanamic Pointer Decoder is furthur composed of a Maxout Network and Highway network. The Decoder outputs two values which are the start index and the end index of the answer it has predicted in the passage.
+An improvement came to the above approach in the form of DCN+. One shortcoming of DCN is that  it has only a single-layer coattention encoder. DCN+ is composed of stacked coattention layers which helps the Coattention Encoder build deeper representation of the input. Another improvement that has been made is merging the coattention ouptputs of the current layer with the residual outputs of the previous layer.
+
+Given below is the diagramatic representation of the implemented appraoch:
+
+![Diagram](Diagram.jpg)
