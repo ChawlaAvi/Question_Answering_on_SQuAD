@@ -7,6 +7,23 @@
    * [Coattention Answer-Pointer Networks for Question Answering](https://web.stanford.edu/class/cs224n/reports/2761042.pdf)
    * [Short Passages Reading Comprehension and Question Answering](http://www.ccs.neu.edu/home/luwang/courses/reports_cs6120_fa17/2.pdf)
 
+### Approach:
+DCN, also known as Dynamic Co-attention Network is an end-to-end neural network for Question Answering. DCN comprises of a Co-attention Encoder and a Dynamic Pointer Decoder. 
+Co-attention Encoder first find the fuses the question and the passage together to generate a question-oriented passage representation called the coattention encoding which is fed to the Dynamic Pointer Decoder. Dyanamic Pointer Decoder is furthur composed of a Maxout Network and Highway network. The Decoder outputs two values which are the start index and the end index of the answer it has predicted in the passage.
+An improvement came to the above approach in the form of DCN+. One shortcoming of DCN is that  it has only a single-layer coattention encoder. DCN+ is composed of stacked coattention layers which helps the Coattention Encoder build deeper representation of the input. Another improvement that has been made is merging the coattention ouptputs of the current layer with the residual outputs of the previous layer.
+
+Given below is the diagramatic representation of the implemented appraoch:
+
+![Diagram](Diagram.jpg)
+
+### About the dataset:
+Processed dataset is the form of dictionary whose key is a unique id present for every question, answer and span triplet. The value corresponding to every key in the dataset dictionary is a list containing passage, question, answer, span, tokenized passage, tokenized question, tokenized_passage and tokenized_question mapped using the word_to_idx dict to a list of numbers.
+
+
+Given below is the plot of number of examples lying in different length ranges.
+
+![Training Data](download.jpg)  ![Validation Data](download1.jpg) 
+
 ### About the code:
   * **data_preprocess.py** : This file preprocess the given train and dev json datasets into the desired format. This file                                asks for three inputs from the command line:
                              - Path to JSON Training file.
@@ -34,24 +51,14 @@
                  '''        
                     Run python train.py -h for more information.
                  '''
-                 
+
+* **tk.py** : This python program provides the user with a GUI to give a passage and a question as an input and see what the               model has produced as its prediction. User can either give an input manually or select a random example from                 the dataset.
+              Usage: python tk.py
+              Given below is an image of this progra
+              ![GUI](gui.png)
+              
+
      After every epoch, the model is saved in a foled named **saved_model** and results are stored in a folder named              **results** so you should also create these folder before excuting the code.
  
 Accuracy and loss for both train as well as dev data are also examined using Tensorboard. One can run a Tensorbaord session to see the performance of the model.
 
-### About the dataset:
-Processed dataset is the form of dictionary whose key is a unique id present for every question, answer and span triplet. The value corresponding to every key in the dataset dictionary is a list containing passage, question, answer, span, tokenized passage, tokenized question, tokenized_passage and tokenized_question mapped using the word_to_idx dict to a list of numbers.
-
-
-Given below is the plot of number of examples lying in different length ranges.
-
-![Training Data](download.jpg)  ![Validation Data](download1.jpg) 
-
-### Approach:
-DCN, also known as Dynamic Co-attention Network is an end-to-end neural network for Question Answering. DCN comprises of a Co-attention Encoder and a Dynamic Pointer Decoder. 
-Co-attention Encoder first find the fuses the question and the passage together to generate a question-oriented passage representation called the coattention encoding which is fed to the Dynamic Pointer Decoder. Dyanamic Pointer Decoder is furthur composed of a Maxout Network and Highway network. The Decoder outputs two values which are the start index and the end index of the answer it has predicted in the passage.
-An improvement came to the above approach in the form of DCN+. One shortcoming of DCN is that  it has only a single-layer coattention encoder. DCN+ is composed of stacked coattention layers which helps the Coattention Encoder build deeper representation of the input. Another improvement that has been made is merging the coattention ouptputs of the current layer with the residual outputs of the previous layer.
-
-Given below is the diagramatic representation of the implemented appraoch:
-
-![Diagram](Diagram.jpg)
