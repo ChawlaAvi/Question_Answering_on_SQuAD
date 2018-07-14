@@ -12,7 +12,10 @@
                         - Path to JSON Training file.
                         - Path to JSON Dev file.
                         - Path to the pre-trained Glove Embeddings.
-                        After execution, some pickles files are generated to save the processed dataset which are to be stored                         in a folder named **model_pickles** in the same directory. So if this directory is not present already,                         then you should create one.
+                        After execution, some pickles files are generated to save the processed dataset which are to be stored                         in a folder named **model_pickles** in the same directory. So if this directory is not present already,                         **then you should create one.**
+                        ''' 
+                          Run python data_preprocess.py -h for more information.
+                        '''
                        
   * evaluate-v2.0 (1).py : This is the official evaluation script of SQuAD dataset but some changes are made from lines **268 *                            to 272** of this script to keep track of only F score and exact match for dev accuracy.
   
