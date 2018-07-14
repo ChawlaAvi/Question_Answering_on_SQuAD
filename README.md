@@ -29,6 +29,10 @@
 
                  '''        
                     Run python train.py -h for more information.
-                 '''   
+                 '''
+                 
+     After every epoch, the model is saved in a foled named **saved_model** and results are stored in a folder named              **results** so you should also create these folder before excuting the code.
+     
+     
                   
                   
