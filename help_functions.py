@@ -26,12 +26,12 @@ def word_idx_map():
 
 def load_data(mode):
 
-	if mode == 'train':
+    if mode == 'train':
 		
 		with open('./model_pickles/training_data.pickle','rb') as h:
         	data = pickle.load(h)
 
-    id mode == 'dev':
+    if mode == 'dev':
     	
     	with open('./model_pickles/validation_data.pickle','rb') as h:
         	data = pickle.load(h)
