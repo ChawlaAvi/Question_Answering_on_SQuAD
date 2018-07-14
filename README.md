@@ -54,7 +54,7 @@ Given below is the plot of number of examples lying in different length ranges.
 
 * **tk.py** : This python program provides the user with a GUI to give a passage and a question as an input and see what the               model has produced as its prediction. User can either give an input manually or select a random example from                 the dataset.
               Usage: python tk.py
-              Given below is an image of this progra
+              Given below is an image of this program
               ![GUI](gui.png)
               
 
